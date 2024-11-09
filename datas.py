@@ -1,4 +1,5 @@
 import json
+import os
 from settings import user_settings
 
 #Normal mode
@@ -58,6 +59,7 @@ def update_record(score):
 # theme settings
 file_name = "data/theme.txt"
 def save_theme_settings(theme_dict):
+    os.makedirs(os.path.dirname(file_name), exist_ok=True)
     with open(file_name, 'w') as file:
         json.dump(theme_dict, file)
 
